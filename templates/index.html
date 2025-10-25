@@ -249,7 +249,7 @@
             <div class="mt-8">
                 <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {% for project in projects %}
-                    <div class="project-card"
+                    <div class="project-card" 
                          data-status="{{ project.status }}" 
                          data-difficulty="{{ project.difficulty }}"
                          data-priority="{{ project.priority }}"
@@ -287,7 +287,7 @@
                                 </div>
                             </div>
                             <span class="project-date">{{ project.created_at|date:"M d, Y" }}</span>
-                            <p class="project-description">{{ project.description }}</p>
+                            <p class="project-description" style="max-height: 300px; overflow-y: scroll;" >{{ project.description }}</p>
                             <div class="project-badges">
                                 <span class="badge badge-status-{{ project.status }}">{{ project.get_status_display }}</span>
                                 <span class="badge badge-difficulty-{{ project.difficulty }}">{{ project.get_difficulty_display }}</span>
