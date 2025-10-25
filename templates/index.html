@@ -293,6 +293,7 @@
                                 <span class="badge badge-difficulty-{{ project.difficulty }}">{{ project.get_difficulty_display }}</span>
                                 <span class="badge badge-priority">{{ project.get_priority_display }}</span>
                             </div>
+                            {% if project.tech_items.all %}
                             <div class="tech-stack">
                                 <div class="tech-stack-label">Technologies:</div>
                                 <div class="tech-stack-items">
@@ -301,6 +302,7 @@
                                     {% endfor %}
                                 </div>
                             </div>
+                            {% endif %}
                             <div class="project-links">
                                 {% if project.github_url %}
                                 <a href="{{ project.github_url }}" target="_blank" class="project-link">
