@@ -1,0 +1,3 @@
+INFO 2025-10-25 12:01:41,570 autoreload 48233 8447570496 Watching for file changes with StatReloader
+INFO 2025-10-25 12:01:50,724 autoreload 48233 8447570496 /Users/macbookpro/Documents/DjangoProjects/mysite copy/mysite/settings_production.py changed, reloading.
+INFO 2025-10-25 12:01:50,962 autoreload 48341 8447570496 Watching for file changes with StatReloader

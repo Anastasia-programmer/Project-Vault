@@ -67,12 +67,16 @@ function setupEventListeners() {
       const isAuthenticated = document.body.getAttribute('data-user-authenticated') === 'true';
       
       if (!isAuthenticated) {
-        // Demo user - show register/sign in prompt
-        showAuthPrompt();
-        return;
+        // Demo user - check if they already have a project
+        const existingProjects = document.querySelectorAll('.project-card');
+        if (existingProjects.length >= 1) {
+          // Demo user already has a project - show auth prompt
+          showAuthPrompt();
+          return;
+        }
       }
       
-      // Authenticated user - show form
+      // Show form for authenticated users or demo users with no projects
       editMode = false;
       currentProjectId = null;
       formTitle.textContent = 'Create New Project';
@@ -92,12 +96,16 @@ function setupEventListeners() {
       const isAuthenticated = document.body.getAttribute('data-user-authenticated') === 'true';
       
       if (!isAuthenticated) {
-        // Demo user - show register/sign in prompt
-        showAuthPrompt();
-        return;
+        // Demo user - check if they already have a project
+        const existingProjects = document.querySelectorAll('.project-card');
+        if (existingProjects.length >= 1) {
+          // Demo user already has a project - show auth prompt
+          showAuthPrompt();
+          return;
+        }
       }
       
-      // Authenticated user - show form
+      // Show form for authenticated users or demo users with no projects
       editMode = false;
       currentProjectId = null;
       formTitle.textContent = 'Create New Project';
