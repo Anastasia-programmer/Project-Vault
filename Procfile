@@ -1,0 +1,1 @@
+web: python manage.py migrate --settings=mysite.settings_railway && python manage.py collectstatic --noinput --settings=mysite.settings_railway && gunicorn mysite.wsgi --settings=mysite.settings_railway
