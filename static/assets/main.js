@@ -32,6 +32,22 @@ const formTitle = document.getElementById('form-title');
 const submitBtn = document.getElementById('submit-btn');
 const projectIdInput = document.getElementById('project-id');
 
+// Show authentication prompt for demo users
+function showAuthPrompt() {
+  const authModal = document.getElementById('auth-prompt-modal');
+  if (authModal) {
+    authModal.classList.remove('hidden');
+  }
+}
+
+// Hide authentication prompt
+function hideAuthPrompt() {
+  const authModal = document.getElementById('auth-prompt-modal');
+  if (authModal) {
+    authModal.classList.add('hidden');
+  }
+}
+
 // Initialize the app
 document.addEventListener('DOMContentLoaded', function() {
   initializeApp();
@@ -47,6 +63,16 @@ function setupEventListeners() {
   // New project button
   if (newProjectBtn) {
     newProjectBtn.addEventListener('click', () => {
+      // Check if user is authenticated
+      const isAuthenticated = document.body.getAttribute('data-user-authenticated') === 'true';
+      
+      if (!isAuthenticated) {
+        // Demo user - show register/sign in prompt
+        showAuthPrompt();
+        return;
+      }
+      
+      // Authenticated user - show form
       editMode = false;
       currentProjectId = null;
       formTitle.textContent = 'Create New Project';
@@ -61,6 +87,17 @@ function setupEventListeners() {
   if (emptyStateBtn) {
     emptyStateBtn.addEventListener('click', (e) => {
       e.preventDefault();
+      
+      // Check if user is authenticated
+      const isAuthenticated = document.body.getAttribute('data-user-authenticated') === 'true';
+      
+      if (!isAuthenticated) {
+        // Demo user - show register/sign in prompt
+        showAuthPrompt();
+        return;
+      }
+      
+      // Authenticated user - show form
       editMode = false;
       currentProjectId = null;
       formTitle.textContent = 'Create New Project';
@@ -107,6 +144,21 @@ function setupEventListeners() {
         hideForm();
       }
     });
+  }
+
+  // Auth prompt modal events
+  const authModal = document.getElementById('auth-prompt-modal');
+  if (authModal) {
+    authModal.addEventListener('click', (e) => {
+      if (e.target === authModal || e.target.classList.contains('modal-overlay')) {
+        hideAuthPrompt();
+      }
+    });
+  }
+
+  const cancelAuthBtn = document.getElementById('cancel-auth');
+  if (cancelAuthBtn) {
+    cancelAuthBtn.addEventListener('click', hideAuthPrompt);
   }
 
   // Delete modal events

@@ -131,20 +131,48 @@ body {
     text-decoration: underline;
 }
 
+/* Email Validation Indicator */
+.email-validation {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
 /* Password Strength Indicator */
 .password-strength {
     margin-top: 0.5rem;
     font-size: 0.8rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.password-match {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-weight: 500;
 }
 
 .strength-weak {
-    color: #c33;
+    color: #dc2626;
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
 }
+
 .strength-medium {
-    color: #f90;
+    color: #d97706;
+    background-color: #fffbeb;
+    border: 1px solid #fed7aa;
 }
+
 .strength-strong {
-    color: #3c3;
+    color: #059669;
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
 }
 
 /* Responsive Design */

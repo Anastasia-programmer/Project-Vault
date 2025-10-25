@@ -275,6 +275,32 @@ body::before {
   align-items: start;
 }
 
+/* Masonry layout for project cards */
+#projects-grid {
+  column-count: 1;
+  column-gap: 1.5rem;
+  break-inside: avoid;
+}
+
+@media (min-width: 768px) {
+  #projects-grid {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  #projects-grid {
+    column-count: 3;
+  }
+}
+
+#projects-grid .project-card {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  width: 100%;
+}
+
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }

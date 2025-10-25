@@ -44,7 +44,7 @@ class Project(models.Model):
     deployment_url = models.URLField(blank=True, null=True)
     
     # User relationship
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='projects')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='projects', null=True, blank=True)
     
     def __str__(self):
         return self.title
