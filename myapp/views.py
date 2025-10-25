@@ -98,7 +98,7 @@ def index(request):
             # Demo mode - check if user already has a project
             existing_demo_projects = Project.objects.filter(user__isnull=True).count()
             if existing_demo_projects >= 1:
-                messages.info(request, 'Demo mode allows only 1 project. Create an account to save unlimited projects!')
+                # Don't show message here - let JavaScript handle it
                 return redirect('index')
             
             title = request.POST.get('title')
