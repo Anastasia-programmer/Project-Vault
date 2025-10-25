@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect, get_object_or_404
-from .models import Features, Project, TechStack
+from .models import  Project, TechStack
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from django.http import JsonResponse
@@ -143,10 +143,9 @@ def index(request):
         # Get projects created by anonymous users
         projects = Project.objects.filter(user__isnull=True).order_by('-created_at')
     
-    features = Features.objects.all()
+    
     
     return render(request, 'index.html', {
-        'features': features,
         'projects': projects
     })
 def register(request):
@@ -190,12 +189,7 @@ def register(request):
     # return HttpResponse('<h1> Hey , welcome here </h1>')
    # return render(request,'index.html')
  # name='john'  return render(request,'index.html', 'name': name) name is key and name is variable 
-def counter(request):
-   # text=request.POST['text']
-   # wordsCount=len(text.split())
-   # return render(request,'counter.html',{'count':wordsCount})
-   posts=['hey','hi','hello','welcome']
-   return render(request,'counter.html',{'posts':posts})
+
 
 def login(request):
    if request.method=='POST':
